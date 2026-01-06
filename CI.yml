@@ -1,0 +1,18 @@
+name: CI Java            # Nome do pipeline
+
+on:                      # Quando roda
+  pull_request:          #aqui voce pode adcionar "eventos"
+
+jobs:
+  build:                 # Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4   # Baixa código, é como um git clone https://github.com/usuario/repositorio.git
+
+      - uses: actions/setup-java@v4 # Instala Java
+        with:
+          java-version: '21'
+          distribution: temurin
+
+      - run: mvn test                # Executa comandos de shell/terminal
