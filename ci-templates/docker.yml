@@ -1,0 +1,14 @@
+name: Docker Build
+
+on: pull_request
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Build da imagem
+        run: docker build -t minha-imagem .
